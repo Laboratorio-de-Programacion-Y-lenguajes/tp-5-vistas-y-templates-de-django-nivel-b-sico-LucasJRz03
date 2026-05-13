@@ -11,10 +11,31 @@
     - Un bloque de contenido para que los templates hijos inserten su HTML:
         {% block content %}{% endblock %}
     - Un <footer> simple (puede ser solo un texto)
-
-    Pista para el bloque de contenido:
+-->
+        
+<DOCTYPE html>
+<html lang="es">
+ <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}Portal de Publicaciones{% endblock %}</title>        
+ </head>
+ <body>
+        <header>
+            <h1>Portal de Publicaciones</h1>
+            <nav> 
+                <a href="{% url 'publicaciones:inicio' %}">Inicio</a>
+                <a href="{% url 'publicaciones:lista_publicaciones' %}">Publicaciones</a>
+            </nav>
+        </header>
         <main>
             {% block content %}
+            <!-- Acá los templates hijos insertarán su contenido -->
             {% endblock %}
         </main>
--->
+        <footer>
+            <p>&copy; 2026 - Portal Laboratorio de PyL</p>
+        </footer>
+ </body>
+
+</html>
