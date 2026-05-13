@@ -35,8 +35,8 @@ class InicioView(TemplateView):
 #   - context_object_name = "publicacion_list"
 #     (el template accede a esta variable con {% for pub in publicacion_list %})
 #
-class PublicacionesListView(ListView):
-    modal = Publicacion
+class PublicacionListView(ListView):
+    model = Publicacion
     context_object_name = "publicacion_list"
     # buscaría 'publicaciones/publicacion_list.html'  
 
@@ -53,8 +53,8 @@ class PublicacionesListView(ListView):
 #     (indica que el parámetro en la URL se llama "publicacion_id", no "pk")
 #   - Si no existe la publicación → responde automáticamente con 404
 #
-# Pista:
-#   class PublicacionDetailView(DetailView):
-#       model = ...
-#       context_object_name = "..."
-#       pk_url_kwarg = "..."
+class PublicacionDetailView(DetailView):
+    model = Publicacion
+    context_object_name = "publicacion"
+    pk_url_kwarg = "publicacion_id"
+    # buscaría 'publicaciones/publicacion_detail.html'
