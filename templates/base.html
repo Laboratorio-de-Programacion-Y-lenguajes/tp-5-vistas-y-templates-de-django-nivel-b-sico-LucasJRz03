@@ -1,39 +1,24 @@
-<!-- 
-    TODO: Completar el template base del portal.
-
-    Requisitos:
-    - Estructura HTML5 válida (<!DOCTYPE html>, <html>, <head>, <body>)
-    - En <title>: mostrar el nombre del sitio (podés hardcodearlo o usar una variable)
-    - Un <header> visible con el nombre del portal
-    - Una navegación (<nav>) con dos links:
-        - Inicio → {% url 'publicaciones:inicio' %}
-        - Publicaciones → {% url 'publicaciones:lista_publicaciones' %}
-    - Un bloque de contenido para que los templates hijos inserten su HTML:
-        {% block content %}{% endblock %}
-    - Un <footer> simple (puede ser solo un texto)
--->
-        
-<DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
- <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{% block title %}Portal de Publicaciones{% endblock %}</title>        
- </head>
- <body>
-        <header>
-            <h1>Portal de Publicaciones</h1>
-            <nav> 
-                <a href="{% url 'publicaciones:inicio' %}">Inicio</a>
-                <a href="{% url 'publicaciones:lista_publicaciones' %}">Publicaciones</a>
-            </nav>
-        </header>
-        <main>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Portal de Publicaciones{% endblock %}</title>        
+</head>
+<body>
+    <header>
+    <h1>Portal de Publicaciones</h1>
+    <nav> 
+        <a href="{% url 'publicaciones:inicio' %}">Inicio</a>
+        <a href="{% url 'publicaciones:lista_publicaciones' %}">Publicaciones</a>
+    </nav>
+    </header>
+    <main>
         {% block content %}{% endblock %}
-        </main>
-        <footer>
-            <p>&copy; 2026 - Portal Laboratorio de PyL</p>
-        </footer>
+    </main>
+    <footer>
+        <p>&copy; 2026 - Portal Laboratorio de PyL</p>
+    </footer>
 </body>
-
+        
 </html>
