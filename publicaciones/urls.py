@@ -26,7 +26,8 @@ urlpatterns = [
     path("", views.InicioView.as_view(), name="inicio"),
 
     #Ruta de las listas de publicaciones
-    path("publicaciones/", views.PublicacionListView_as_view(), name="lista_publicaciones"),
+    #Corregí el error de tipeo
+    path("publicaciones/", views.PublicacionListView.as_view(), name="lista_publicaciones"),
 
     #Ruta del detalle de una publicacion X
     path("publicaciones/<int:publicacion_id>/", views.PublicacionDetailView.as_view(), name="detalle_publicacion"), 
