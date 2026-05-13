@@ -3,7 +3,7 @@ from .models import Publicacion
 
 # ---------------------------------------------------------------------------
 # InicioView
-# ---------------------------------------------------------------------------
+# --------------------------------------------------------------------
 # TODO: Implementar InicioView usando TemplateView.
 #
 # Requisitos:
@@ -11,17 +11,19 @@ from .models import Publicacion
 #   - Sobreescribir get_context_data() para agregar al contexto:
 #       "titulo"  → str con el nombre del portal
 #       "mensaje" → str de bienvenida
-#
-# Pista:
-#   class InicioView(TemplateView):
-#       template_name = "..."
-#
-#       def get_context_data(self, **kwargs):
-#           context = super().get_context_data(**kwargs)
-#           context["titulo"] = "..."
-#           context["mensaje"] = "..."
-#           return context
 
+class InicioView(TemplateView):
+    template_name = "publicaciones/inicio.html"
+    #**kwargs para cuando no sabes cuántos parámetros con nombre se pasarán  
+    def get_context_data(self, **kwargs):
+        #Primero recupera el contexto base llamando a super()
+        context = super().get_context_data(**kwargs)
+
+        #Variables personalizadas
+        context["titulo"] = "Portal de publicaciones"
+        context["mensaje"] = "Bienvenido/a al portal de publicaciones."
+
+        return context
 
 # ---------------------------------------------------------------------------
 # PublicacionListView
@@ -33,11 +35,10 @@ from .models import Publicacion
 #   - context_object_name = "publicacion_list"
 #     (el template accede a esta variable con {% for pub in publicacion_list %})
 #
-# Pista:
-#   class PublicacionListView(ListView):
-#       model = ...
-#       context_object_name = "..."
-
+class PublicacionesListView(ListView):
+    modal = Publicacion
+    context_object_name = "publicacion_list"
+    # buscaría 'publicaciones/publicacion_list.html'  
 
 # ---------------------------------------------------------------------------
 # PublicacionDetailView
