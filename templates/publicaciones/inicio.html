@@ -8,12 +8,16 @@
         - El valor de la variable {{ titulo }} en un encabezado (<h1>)
         - El valor de la variable {{ mensaje }} en un párrafo (<p>)
         - Un link hacia la lista de publicaciones usando {% url %}
-
-    Pista para extender:
-        {% extends "base.html" %}
-
-        {% block content %}
-            <h1>{{ titulo }}</h1>
-            ...
-        {% endblock %}
 -->
+
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>{{ titulo }}</h1>
+    <p>{{ mensaje }}<p>
+
+    <p>Ver que hay en la lista de publicaciones 
+        -> <a href="{% url 'publicaciones:lista_publicaciones' %}">Ir a las publicaciones</a>"
+    </p>
+{% endblock %}
+
